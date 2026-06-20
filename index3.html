@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vekil AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+
+  :root{
+    --bg: #FAF8F4;
+    --ink: #1A1814;
+    --ink-soft: #5C574E;
+    --rust: #B5482C;
+    --rust-soft: #F0E0D8;
+    --line: rgba(26,24,20,0.12);
+    --card: #FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+  .serif{font-family:'Source Serif 4',serif;}
+
+  nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 56px;max-width:1180px;margin:0 auto;
+  }
+  .logo{font-size:18px;font-weight:600;}
+  .navlinks{display:flex;gap:8px;}
+  .navlinks a{font-size:14px;color:var(--ink-soft);padding:8px 14px;border-radius:6px;}
+  .navlinks a:hover{background:rgba(26,24,20,0.05);color:var(--ink);}
+  .nav-btn{
+    background:var(--ink);color:var(--bg);font-weight:500;font-size:14px;
+    padding:10px 20px;border-radius:6px;border:none;cursor:pointer;
+  }
+
+  .hero{
+    padding:60px 56px 0;max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:start;
+  }
+  .hero-left{padding-top:40px;}
+  .hero h1{
+    font-family:'Source Serif 4',serif;font-weight:600;
+    font-size:54px;line-height:1.1;letter-spacing:-0.5px;
+    margin-bottom:28px;
+  }
+  .hero h1 .accent{color:var(--rust);font-style:italic;}
+  .hero p{font-size:17px;color:var(--ink-soft);line-height:1.65;max-width:480px;margin-bottom:32px;}
+  .hero-actions{display:flex;gap:14px;}
+  .btn-rust{
+    background:var(--rust);color:#fff;font-weight:500;font-size:15px;
+    padding:14px 28px;border-radius:6px;border:none;cursor:pointer;
+  }
+  .btn-out{
+    background:transparent;color:var(--ink);font-weight:500;font-size:15px;
+    padding:14px 28px;border-radius:6px;border:1px solid var(--line);cursor:pointer;
+  }
+
+  .case-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px;position:sticky;top:40px;
+  }
+  .case-card .eyebrow{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:16px;}
+  .case-line{
+    display:flex;justify-content:space-between;padding:11px 0;
+    border-bottom:1px solid var(--line);font-size:13px;
+  }
+  .case-line:last-child{border-bottom:none;}
+  .case-line .l{color:var(--ink-soft);}
+  .case-line .v{font-weight:600;}
+  .case-line .v.up{color:#3A6B35;}
+
+  .divider-text{
+    max-width:1180px;margin:90px auto 0;padding:0 56px;
+    display:flex;gap:48px;align-items:flex-end;
+    border-top:1px solid var(--line);padding-top:48px;
+  }
+  .divider-text .label{font-size:13px;color:var(--rust);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;white-space:nowrap;}
+  .divider-text p{font-size:20px;line-height:1.5;font-family:'Source Serif 4',serif;color:var(--ink);max-width:680px;}
+
+  .section{padding:90px 56px;max-width:1180px;margin:0 auto;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:24px;flex-wrap:wrap;}
+  .section-head h2{font-family:'Source Serif 4',serif;font-size:36px;font-weight:600;max-width:520px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;max-width:320px;}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .step{background:var(--card);padding:36px 28px;}
+  .step .step-mark{
+    width:36px;height:36px;border-radius:50%;background:var(--rust-soft);color:var(--rust);
+    display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;
+    margin-bottom:24px;
+  }
+  .step h3{font-size:18px;font-weight:600;margin-bottom:10px;}
+  .step p{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+
+  .quote-block{
+    background:var(--ink);color:var(--bg);border-radius:18px;
+    padding:64px 56px;margin:0 auto;max-width:1180px;
+    display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center;
+  }
+  .quote-block blockquote{
+    font-family:'Source Serif 4',serif;font-size:28px;line-height:1.4;font-weight:500;
+  }
+  .quote-block .who{margin-top:24px;font-size:14px;color:rgba(250,248,244,0.6);}
+  .quote-block .stat{text-align:right;}
+  .quote-block .stat .n{font-family:'Source Serif 4',serif;font-size:48px;font-weight:600;color:#E8B084;}
+  .quote-block .stat .d{font-size:13px;color:rgba(250,248,244,0.6);margin-top:6px;}
+
+  footer{
+    max-width:1180px;margin:90px auto 0;padding:48px 56px;
+    border-top:1px solid var(--line);
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
+  }
+  footer .f-brand{font-weight:600;font-size:16px;margin-bottom:12px;}
+  footer .f-tag{font-size:14px;color:var(--ink-soft);max-width:280px;line-height:1.6;}
+  footer .f-col h4{font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--ink-soft);margin-bottom:14px;}
+  footer .f-col a{display:block;font-size:14px;color:var(--ink);margin-bottom:10px;}
+  footer .f-bottom{
+    grid-column:1/-1;border-top:1px solid var(--line);margin-top:24px;padding-top:24px;
+    font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;
+  }
+
+  @media (max-width:880px){
+    nav{padding:20px 24px;}
+    .navlinks{display:none;}
+    .hero{grid-template-columns:1fr;padding:32px 24px 0;}
+    .hero h1{font-size:36px;}
+    .case-card{position:static;margin-top:32px;}
+    .divider-text{flex-direction:column;gap:16px;padding:0 24px;margin-top:60px;}
+    .divider-text p{font-size:18px;}
+    .section{padding:60px 24px;}
+    .section-head{flex-direction:column;align-items:flex-start;}
+    .steps{grid-template-columns:1fr;}
+    .quote-block{grid-template-columns:1fr;padding:40px 28px;text-align:left;}
+    .quote-block .stat{text-align:left;}
+    .quote-block blockquote{font-size:22px;}
+    footer{grid-template-columns:1fr;padding:40px 24px;gap:28px;}
+    footer .f-bottom{flex-direction:column;gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo serif">Vekil AI</div>
+  <div class="navlinks">
+    <a href="#how">How it works</a>
+    <a href="#proof">Results</a>
+  </div>
+  <button class="nav-btn">Get started</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <h1>Someone has to <span class="accent">speak for you</span> in a market that doesn't speak your language.</h1>
+    <p>Vekil AI rewrites your work as a portfolio clients trust, pitches it to the jobs that match, and carries the first conversation — so the gap is never English, only opportunity.</p>
+    <div class="hero-actions">
+      <button class="btn-rust">Try it free</button>
+      <button class="btn-out">See a real proposal →</button>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="eyebrow">Live on a freelancer's account</div>
+    <div class="case-line"><span class="l">Portfolio pieces written</span><span class="v">7</span></div>
+    <div class="case-line"><span class="l">Proposals sent this week</span><span class="v">4</span></div>
+    <div class="case-line"><span class="l">Client replies</span><span class="v up">+3</span></div>
+    <div class="case-line"><span class="l">Deal awaiting your review</span><span class="v">$120</span></div>
+  </div>
+</section>
+
+<div class="divider-text">
+  <div class="label">The gap</div>
+  <p>Most freelancers losing work to language aren't losing on skill. They're losing the four minutes it takes to write a proposal that sounds like it was written by someone fluent — and confident.</p>
+</div>
+
+<section class="section" id="how">
+  <div class="section-head">
+    <h2>What actually happens, in order.</h2>
+    <p>No dashboard to learn. Everything runs from one thread you can read top to bottom.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-mark">1</div>
+      <h3>You send raw work</h3>
+      <p>A file, a screenshot, even a voice note describing a past project. Nothing needs to be formatted first.</p>
+    </div>
+    <div class="step">
+      <div class="step-mark">2</div>
+      <h3>It writes and pitches</h3>
+      <p>A portfolio entry goes up, and matching jobs get a proposal drafted in client-ready English.</p>
+    </div>
+    <div class="step">
+      <div class="step-mark">3</div>
+      <h3>You approve, it sends</h3>
+      <p>Nothing reaches a client without your yes. You see the exact words before they go out.</p>
+    </div>
+  </div>
+</section>
+
+<div class="quote-block">
+  <div>
+    <blockquote>"I had the skill for two years. I didn't have the English to sound like I was worth what I charge."</blockquote>
+    <div class="who">— First beta tester, graphic designer, Sahiwal</div>
+  </div>
+  <div class="stat">
+    <div class="n">3x</div>
+    <div class="d">more proposals sent per week, in testing</div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="f-brand serif">Vekil AI</div>
+    <p class="f-tag">An agent that represents your work where you can't yet reach — built one freelancer at a time.</p>
+  </div>
+  <div class="f-col">
+    <h4>Product</h4>
+    <a href="#how">How it works</a>
+    <a href="#proof">Results</a>
+  </div>
+  <div class="f-col">
+    <h4>Start here</h4>
+    <a href="#">Create your portfolio</a>
+    <a href="#">See a sample proposal</a>
+  </div>
+  <div class="f-bottom">
+    <span>© 2026 Vekil AI</span>
+    <span>Made for the Build with Gemini XPRIZE</span>
+  </div>
+</footer>
+
+</body>
+</html>

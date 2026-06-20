@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vekil AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --bg: #0B0D10;
+    --bg-soft: #12151A;
+    --card: #161A20;
+    --text: #F5F6F7;
+    --text-dim: #9CA3AE;
+    --accent: #D4FF3F;
+    --accent-dim: rgba(212,255,63,0.12);
+    --line: rgba(255,255,255,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+
+  nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:24px 32px;max-width:1140px;margin:0 auto;
+  }
+  .logo{font-size:19px;font-weight:700;letter-spacing:-0.3px;}
+  .navlinks{display:flex;gap:32px;font-size:14px;color:var(--text-dim);}
+  .navlinks a:hover{color:var(--text);}
+  .pill-btn{
+    background:var(--accent);color:#0B0D10;font-weight:600;font-size:14px;
+    padding:10px 20px;border-radius:100px;border:none;cursor:pointer;
+  }
+
+  .hero{
+    padding:80px 32px 0;max-width:1140px;margin:0 auto;text-align:center;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--line);
+    padding:7px 16px;border-radius:100px;font-size:13px;color:var(--text-dim);
+    margin-bottom:32px;
+  }
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  .hero h1{
+    font-size:72px;font-weight:800;line-height:1.02;letter-spacing:-2px;
+    max-width:780px;margin:0 auto 24px;
+  }
+  .hero h1 .hl{color:var(--accent);}
+  .hero p{
+    font-size:19px;color:var(--text-dim);max-width:520px;margin:0 auto 40px;
+    line-height:1.55;
+  }
+  .hero-actions{display:flex;gap:14px;justify-content:center;margin-bottom:80px;}
+  .btn-main{
+    background:var(--accent);color:#0B0D10;font-weight:600;font-size:15px;
+    padding:15px 30px;border-radius:100px;border:none;cursor:pointer;
+  }
+  .btn-ghost{
+    background:transparent;color:var(--text);font-weight:500;font-size:15px;
+    padding:15px 30px;border-radius:100px;border:1px solid var(--line);cursor:pointer;
+  }
+
+  .browser-frame{
+    max-width:980px;margin:0 auto 0;
+    background:var(--card);border:1px solid var(--line);
+    border-radius:20px 20px 0 0;padding:14px 20px;
+    display:flex;gap:8px;align-items:center;
+  }
+  .browser-frame .d{width:10px;height:10px;border-radius:50%;background:var(--line);}
+  .preview{
+    max-width:980px;margin:0 auto 100px;
+    background:linear-gradient(180deg, var(--bg-soft), var(--bg));
+    border:1px solid var(--line);border-top:none;
+    border-radius:0 0 20px 20px;
+    padding:48px 40px;
+  }
+  .preview-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;margin-bottom:12px;
+  }
+  .preview-row .tag{
+    font-size:12px;color:var(--accent);background:var(--accent-dim);
+    padding:4px 10px;border-radius:6px;font-weight:600;
+  }
+  .preview-row .name{font-size:14px;font-weight:500;}
+  .preview-row .sub{font-size:12px;color:var(--text-dim);}
+
+  .marquee{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:28px 0;overflow:hidden;
+  }
+  .marquee-track{
+    display:flex;gap:64px;white-space:nowrap;
+    font-size:13px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;
+    justify-content:center;
+  }
+
+  .section{padding:120px 32px;max-width:1140px;margin:0 auto;}
+  .section-tag{
+    font-size:13px;color:var(--accent);font-weight:600;letter-spacing:1px;
+    text-transform:uppercase;margin-bottom:16px;
+  }
+  .section h2{
+    font-size:42px;font-weight:700;letter-spacing:-1px;line-height:1.15;
+    max-width:600px;margin-bottom:64px;
+  }
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .feat-card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:32px 28px;
+  }
+  .feat-card .num{
+    font-size:13px;color:var(--accent);font-weight:700;margin-bottom:20px;
+  }
+  .feat-card h3{font-size:19px;font-weight:600;margin-bottom:12px;letter-spacing:-0.2px;}
+  .feat-card p{font-size:14px;color:var(--text-dim);line-height:1.6;}
+
+  .cta{
+    background:var(--card);border:1px solid var(--line);border-radius:24px;
+    padding:64px 48px;text-align:center;max-width:1140px;margin:0 auto 100px;
+  }
+  .cta h2{font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+  .cta p{color:var(--text-dim);margin-bottom:32px;}
+
+  footer{
+    border-top:1px solid var(--line);padding:32px;
+    display:flex;justify-content:space-between;max-width:1140px;margin:0 auto;
+    font-size:13px;color:var(--text-dim);
+  }
+
+  @media (max-width:880px){
+    .navlinks{display:none;}
+    .hero h1{font-size:42px;letter-spacing:-1px;}
+    .hero p{font-size:16px;}
+    .grid3{grid-template-columns:1fr;}
+    .section h2{font-size:30px;}
+    .preview{padding:24px 16px;}
+    .preview-row{flex-direction:column;align-items:flex-start;gap:6px;}
+    .cta{padding:40px 24px;}
+    footer{flex-direction:column;gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Vekil AI</div>
+  <div class="navlinks">
+    <a href="#how">How it works</a>
+    <a href="#why">Why Vekil</a>
+  </div>
+  <button class="pill-btn">Get started</button>
+</nav>
+
+<section class="hero">
+  <div class="badge"><span class="dot"></span>Built for freelancers without global reach</div>
+  <h1>Your work deserves <span class="hl">global clients.</span></h1>
+  <p>Vekil AI writes your portfolio, pitches your skills, and opens the first conversation with clients — in the English they expect, at the speed they expect it.</p>
+  <div class="hero-actions">
+    <button class="btn-main">Try it free →</button>
+    <button class="btn-ghost">Watch demo</button>
+  </div>
+
+  <div class="browser-frame">
+    <div class="d"></div><div class="d"></div><div class="d"></div>
+  </div>
+  <div class="preview">
+    <div class="preview-row">
+      <div><div class="name">Logo design — Fiverr listing #2291</div><div class="sub">Matched to your portfolio · 94% fit</div></div>
+      <div class="tag">Proposal sent</div>
+    </div>
+    <div class="preview-row">
+      <div><div class="name">UI kit for SaaS dashboard</div><div class="sub">Client replied · awaiting your review</div></div>
+      <div class="tag">Action needed</div>
+    </div>
+    <div class="preview-row">
+      <div><div class="name">Brand identity — 3 piece set</div><div class="sub">Deal confirmed · $340</div></div>
+      <div class="tag">Closed</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    No app to install &nbsp;•&nbsp; Works in your browser &nbsp;•&nbsp; You approve every message &nbsp;•&nbsp; Built in Pakistan &nbsp;•&nbsp; For talent every market overlooks
+  </div>
+</div>
+
+<section class="section" id="how">
+  <div class="section-tag">How it works</div>
+  <h2>Three things it does, so you can spend your time doing the actual work.</h2>
+  <div class="grid3">
+    <div class="feat-card">
+      <div class="num">01</div>
+      <h3>Builds your portfolio</h3>
+      <p>Send your raw files or screenshots. It comes back as a clean, professional English portfolio — no rewriting needed.</p>
+    </div>
+    <div class="feat-card">
+      <div class="num">02</div>
+      <h3>Writes the proposals</h3>
+      <p>It reads job listings, matches them to your real skills, and drafts a pitch in the tone that gets replies.</p>
+    </div>
+    <div class="feat-card">
+      <div class="num">03</div>
+      <h3>Opens the conversation</h3>
+      <p>It handles a client's first questions. The moment a deal is close, it hands the thread to you — nothing is ever signed without you.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta" id="why">
+  <h2>Stop losing work to a language barrier.</h2>
+  <p>Free to start. No credit card. No app to download.</p>
+  <button class="btn-main">Start for free →</button>
+</div>
+
+<footer>
+  <div>Vekil AI</div>
+  <div>© 2026 — built for talent every market overlooks</div>
+</footer>
+
+</body>
+</html>

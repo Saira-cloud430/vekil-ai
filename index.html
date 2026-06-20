@@ -1,128 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vekil AI — Your AI Career Agent</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 60px;
-            border-bottom: 1px solid #222;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #6c63ff;
-        }
-        .nav-btn {
-            background: #6c63ff;
-            color: white;
-            padding: 10px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        .hero h1 span { color: #6c63ff; }
-        .hero p {
-            font-size: 18px;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        .hero-btn {
-            background: #6c63ff;
-            color: white;
-            padding: 16px 40px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 60px 40px;
-            flex-wrap: wrap;
-        }
-        .card {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 16px;
-            padding: 30px;
-            width: 280px;
-            text-align: center;
-        }
-        .card .icon { font-size: 40px; margin-bottom: 16px; }
-        .card h3 { font-size: 20px; margin-bottom: 10px; }
-        .card p { color: #888; font-size: 14px; }
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #444;
-            border-top: 1px solid #222;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vekil AI — Your authorized representative in the global market</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --navy: #0F1C2E;
+    --navy-deep: #081120;
+    --gold: #C9A646;
+    --gold-bright: #E0C16A;
+    --cream: #F4EFE6;
+    --slate: #8C99AC;
+    --line: rgba(244,239,230,0.12);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:radial-gradient(circle at 20% 20%, rgba(201,166,70,0.07), transparent 40%),
+                      radial-gradient(circle at 85% 75%, rgba(201,166,70,0.05), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 64px;
+    border-bottom:1px solid var(--line);
+    position:relative;z-index:2;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces',serif;font-weight:600;font-size:22px;
+    letter-spacing:0.3px;
+  }
+  .logo .mark{
+    width:30px;height:30px;border:1.5px solid var(--gold);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:14px;color:var(--gold);font-family:'Fraunces',serif;
+  }
+  .nav-links{display:flex;gap:36px;font-size:14px;color:var(--slate);}
+  .nav-links a{color:var(--slate);text-decoration:none;transition:color .2s;}
+  .nav-links a:hover{color:var(--cream);}
+  .nav-btn{
+    background:transparent;border:1px solid var(--gold);color:var(--gold);
+    padding:10px 26px;border-radius:2px;font-size:14px;cursor:pointer;
+    font-family:'Inter',sans-serif;letter-spacing:0.3px;
+    transition:all .25s;
+  }
+  .nav-btn:hover{background:var(--gold);color:var(--navy-deep);}
+
+  .hero{
+    position:relative;z-index:2;
+    padding:120px 64px 100px;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;
+    align-items:center;
+    max-width:1280px;margin:0 auto;
+  }
+  .eyebrow{
+    color:var(--gold);font-size:13px;letter-spacing:2.5px;text-transform:uppercase;
+    margin-bottom:24px;font-weight:500;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:58px;line-height:1.08;font-weight:600;
+    margin-bottom:28px;letter-spacing:-0.5px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-bright);font-weight:500;}
+  .hero p{
+    font-size:18px;line-height:1.65;color:var(--slate);
+    max-width:480px;margin-bottom:40px;
+  }
+  .hero-actions{display:flex;gap:16px;align-items:center;}
+  .btn-primary{
+    background:var(--gold);color:var(--navy-deep);border:none;
+    padding:16px 34px;font-size:15px;font-weight:600;border-radius:2px;
+    cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:0.2px;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(201,166,70,0.4);}
+  .btn-secondary{
+    color:var(--cream);font-size:15px;text-decoration:none;
+    border-bottom:1px solid var(--line);padding-bottom:2px;
+    transition:border-color .2s;
+  }
+  .btn-secondary:hover{border-color:var(--gold);}
+
+  .seal-wrap{
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .seal{
+    width:320px;height:320px;border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    animation:rotate 60s linear infinite;
+  }
+  .seal::before{
+    content:'';position:absolute;inset:18px;
+    border:1px dashed rgba(201,166,70,0.4);border-radius:50%;
+  }
+  .seal-inner{
+    width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle, rgba(201,166,70,0.08), transparent 70%);
+    border:1px solid var(--line);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;animation:rotate-rev 60s linear infinite;
+  }
+  .seal-inner .ar{font-family:'Fraunces',serif;font-size:42px;color:var(--gold);font-weight:600;}
+  .seal-inner .sub{font-size:11px;letter-spacing:2px;color:var(--slate);margin-top:8px;text-transform:uppercase;}
+  @keyframes rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  @keyframes rotate-rev{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
+  @media (prefers-reduced-motion: reduce){.seal,.seal-inner{animation:none;}}
+
+  .strip{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:28px 64px;display:flex;justify-content:center;gap:64px;
+    position:relative;z-index:2;flex-wrap:wrap;
+  }
+  .strip-item{font-size:13px;color:var(--slate);letter-spacing:0.5px;}
+  .strip-item strong{color:var(--gold-bright);font-family:'Fraunces',serif;font-size:16px;margin-right:6px;}
+
+  .section{padding:100px 64px;max-width:1280px;margin:0 auto;position:relative;z-index:2;}
+  .section-head{margin-bottom:64px;max-width:600px;}
+  .section-head .eyebrow{margin-bottom:18px;}
+  .section-head h2{font-size:38px;font-weight:600;line-height:1.2;}
+  .section-head h2 em{font-style:italic;color:var(--gold-bright);}
+
+  .steps{display:flex;flex-direction:column;}
+  .step{
+    display:grid;grid-template-columns:80px 1fr;gap:32px;
+    padding:36px 0;border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .step:last-child{border-bottom:1px solid var(--line);}
+  .step-num{font-family:'Fraunces',serif;font-size:15px;color:var(--gold);padding-top:4px;}
+  .step-body h3{font-size:21px;font-weight:600;margin-bottom:10px;}
+  .step-body p{color:var(--slate);font-size:15px;line-height:1.6;max-width:560px;}
+  .step-tag{
+    float:right;font-size:11px;color:var(--slate);border:1px solid var(--line);
+    padding:5px 12px;border-radius:20px;letter-spacing:0.5px;
+  }
+
+  footer{
+    border-top:1px solid var(--line);padding:48px 64px;
+    display:flex;justify-content:space-between;align-items:center;
+    position:relative;z-index:2;flex-wrap:wrap;gap:20px;
+  }
+  footer .logo{font-size:18px;}
+  footer p{color:var(--slate);font-size:13px;}
+
+  @media (max-width:880px){
+    nav{padding:22px 24px;}
+    .nav-links{display:none;}
+    .hero{grid-template-columns:1fr;padding:70px 24px 60px;text-align:left;}
+    .hero h1{font-size:38px;}
+    .seal-wrap{order:-1;margin-bottom:20px;}
+    .seal{width:220px;height:220px;}
+    .seal-inner{width:160px;height:160px;}
+    .seal-inner .ar{font-size:30px;}
+    .strip{padding:22px 24px;gap:28px;}
+    .section{padding:64px 24px;}
+    .section-head h2{font-size:28px;}
+    .step{grid-template-columns:1fr;gap:10px;}
+    footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">⚖️ Vekil AI</div>
-    <button class="nav-btn">Get Started</button>
+  <div class="logo"><span class="mark">V</span>Vekil AI</div>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#proof">Why it's needed</a>
+  </div>
+  <button class="nav-btn">Get represented</button>
 </nav>
 
 <section class="hero">
-    <h1>Your AI-Powered<br><span>Career Agent</span></h1>
-    <p>Vekil AI represents you in the global marketplace — 
-    building your portfolio, writing proposals, and 
-    communicating with clients on your behalf.</p>
-    <button class="hero-btn">Start for Free →</button>
+  <div>
+    <div class="eyebrow">Authorized digital representation</div>
+    <h1>Skilled work,<br><em>spoken for</em> in any market.</h1>
+    <p>Vekil AI is the agent that stands in for freelancers who do world-class work but can't yet reach the clients who'd pay for it — handling the portfolio, the pitch, and the first conversation, in fluent, professional English.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Start free, no card needed</button>
+      <a href="#how" class="btn-secondary">See how it works</a>
+    </div>
+  </div>
+  <div class="seal-wrap">
+    <div class="seal">
+      <div class="seal-inner">
+        <div class="ar">وکیل</div>
+        <div class="sub">Acting on your behalf</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="features">
-    <div class="card">
-        <div class="icon">📄</div>
-        <h3>AI Portfolio</h3>
-        <p>Upload your work — AI builds a professional 
-        English portfolio instantly.</p>
+<div class="strip">
+  <div class="strip-item"><strong>Vekil</strong>— Urdu/Arabic for "authorized representative"</div>
+  <div class="strip-item"><strong>One agent</strong>— per freelancer, not a generic chatbot</div>
+  <div class="strip-item"><strong>You decide</strong>— every deal before it's signed</div>
+</div>
+
+<section class="section" id="how">
+  <div class="section-head">
+    <div class="eyebrow">The process</div>
+    <h2>What it does <em>while you work</em>, not instead of it.</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Builds the portfolio you haven't had time to write <span class="step-tag">Portfolio</span></h3>
+        <p>Send your raw work — files, screenshots, even rough notes. Vekil AI writes it up as a clear, professional English portfolio that reads the way an agency's would.</p>
+      </div>
     </div>
-    <div class="card">
-        <div class="icon">✍️</div>
-        <h3>Auto Proposals</h3>
-        <p>AI scans job listings and writes winning 
-        proposals on your behalf.</p>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Finds and pitches the right jobs <span class="step-tag">Proposals</span></h3>
+        <p>It scans live listings that match your actual skills, and drafts the proposal in the tone clients respond to — you approve before anything is sent.</p>
+      </div>
     </div>
-    <div class="card">
-        <div class="icon">🤝</div>
-        <h3>Client Communication</h3>
-        <p>AI handles first contact with clients — 
-        you step in when deal is confirmed.</p>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Opens the conversation, then hands it to you <span class="step-tag">First contact</span></h3>
+        <p>Vekil AI answers a client's first questions and clarifies scope. The moment a deal is close, you take over — it never signs on your behalf.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Vekil AI — Representing talent from 
-    every corner of the world.</p>
+  <div class="logo"><span class="mark">V</span>Vekil AI</div>
+  <p>Built for the talent every market overlooks. © 2026.</p>
 </footer>
 
 </body>
